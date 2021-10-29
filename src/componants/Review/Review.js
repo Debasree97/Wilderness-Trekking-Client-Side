@@ -23,7 +23,7 @@ const Review = () => {
               }}
             >
               <div>
-                <h1 className="display-4 container text-center">
+                <h1 className="display-5 container text-center">
                   FOR US QUALITY OF EXPERIENCE IS ONLY SECOND TO SAFETY.
                 </h1>
               </div>

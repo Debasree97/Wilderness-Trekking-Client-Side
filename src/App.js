@@ -1,13 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Banner from "./componants/Banner/Banner";
 import Footer from "./componants/Footer/Footer";
 import Header from "./componants/Header/Header";
 import Home from "./componants/Home/Home";
 import Login from "./componants/Login/Login";
 import MyOrder from "./componants/MyOrder/MyOrder";
 import NotFound from "./componants/NotFound/NotFound";
+import TourDetails from "./componants/TourDetails/TourDetails";
 
 function App() {
   return (
@@ -27,11 +27,14 @@ function App() {
           <Route path="/myorder">
             <MyOrder></MyOrder>
           </Route>
+          <Route path="/tour/:tourId">
+            <TourDetails></TourDetails>
+          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
           {/* <Route path="/"></Route>
-        <Route path="/"></Route>
+        
         <Route path="/"></Route>
         <Route path="/"></Route>
         <Route path="/"></Route> */}
