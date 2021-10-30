@@ -6,7 +6,6 @@ import logo from "../../images/logo.png";
 
 const Header = () => {
   const { user, handleGoogleSignOut } = useAuth();
-  console.log(user);
   const navStyle = {
     textDecoration: "none",
     paddingRight: "10px",
@@ -74,25 +73,22 @@ const Header = () => {
             )}
             {user?.email && <NavDropdown.Divider />}
             {user?.email ? (
-              <Nav.Link
-                as={Link}
-                className="fs-5"
+              <Nav 
+                className="fs-5 d-inline p-2"
                 style={{
                   textDecoration: "none",
-                  paddingRight: "10px",
-                  display: "inline",
                   color: "#DFDFDF",
                   backgroundColor: "#3C3C3C",
+                  
                 }}
-                to="/home"
               >
                 <img
                   style={{ display: "inline", width: "50px" }}
-                  className="ms-2 img-fluid img-thumbnail rounded-circle"
+                  className=" img-fluid img-thumbnail rounded-circle"
                   src={user?.photoURL}
                   alt=""
                 />
-                <p className="px-3" style={{ display: "inline" }}>
+                <p className="px-2" style={{ display: "inline" }}>
                   Hello,{user?.displayName}
                 </p>
                 <button
@@ -107,7 +103,7 @@ const Header = () => {
                 >
                   Sign Out
                 </button>
-              </Nav.Link>
+              </Nav>
             ) : (
               <Nav.Link as={Link} className="fs-5" style={navStyle} to="/login">
                 Sign in
