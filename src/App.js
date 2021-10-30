@@ -9,6 +9,7 @@ import Login from "./componants/Login/Login";
 import ManageOrder from "./componants/ManageOrder/ManageOrder";
 import MyOrder from "./componants/MyOrder/MyOrder";
 import NotFound from "./componants/NotFound/NotFound";
+import PrivateRoute from "./componants/PrivateRoute/PrivateRoute";
 import TourDetails from "./componants/TourDetails/TourDetails";
 import AuthProvider from "./contexts/AuthProvider";
 
@@ -37,9 +38,9 @@ function App() {
             <Route path="/addorder">
               <AddOrder></AddOrder>
             </Route>
-            <Route path="/tour/:tourId">
+            <PrivateRoute path="/tour/:tourId">
               <TourDetails></TourDetails>
-            </Route>
+            </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>
             </Route>
