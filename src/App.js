@@ -34,15 +34,15 @@ function App() {
               <BookingForm></BookingForm>
               <TourDetails></TourDetails>
             </Route>
-            <Route path="/myorders">
+            <PrivateRoute path="/myorders">
               <MyOrder></MyOrder>
-            </Route>
-            <Route path="/manageorder">
+            </PrivateRoute>
+            <PrivateRoute path="/manageorder">
               <ManageOrder></ManageOrder>
-            </Route>
-            <Route path="/addorder">
+            </PrivateRoute>
+            <PrivateRoute path="/addorder">
               <AddOrder></AddOrder>
-            </Route>
+            </PrivateRoute>
             <PrivateRoute path="/tour/:tourId">
               <TourDetails></TourDetails>
             </PrivateRoute>

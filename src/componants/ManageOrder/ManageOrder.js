@@ -7,7 +7,7 @@ const ManageOrder = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/orders")
+    fetch("https://aqueous-badlands-96992.herokuapp.com/orders")
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
@@ -17,7 +17,7 @@ const ManageOrder = () => {
   const handleDeleteBooking = (id) => {
     const proceed = window.confirm("Cancel This Booking?");
     if (proceed) {
-      const url = `http://localhost:5000/myorders/${id}`;
+      const url = `https://aqueous-badlands-96992.herokuapp.com/manageorder/${id}`;
       fetch(url, {
         method: "delete",
       })
@@ -37,7 +37,14 @@ const ManageOrder = () => {
       <h1 className="display-5 container text-center my-5">
         MANAGE ALL BOOKINGS
       </h1>
-      <Table striped bordered hover responsive="md" variant="dark">
+      <Table
+        className="mb-5"
+        striped
+        bordered
+        hover
+        responsive="md"
+        variant="dark"
+      >
         <thead>
           <tr>
             <th className="fs-3">Booking Information</th>
@@ -68,6 +75,10 @@ const ManageOrder = () => {
                     {booking.address}
                   </p>
                   <p>
+                    <span style={{ color: "#E75B00" }}>Date: </span>
+                    {booking.date}
+                  </p>
+                  <p>
                     <span style={{ color: "#E75B00" }}>Status: </span>
                     {booking.status}
                   </p>
@@ -75,13 +86,7 @@ const ManageOrder = () => {
               </td>
               <td>
                 <Container className="d-grid gap-3">
-                  <button
-                    type="button"
-                    className="btn btn-success"
-                    onClick={() => {
-                      handleDeleteBooking(booking._id);
-                    }}
-                  >
+                  <button type="button" className="btn btn-success">
                     <div className="fs-5 d-flex align-items-center">
                       {" "}
                       <FontAwesomeIcon icon={faCheckSquare} className="me-2" />

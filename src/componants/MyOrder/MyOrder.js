@@ -49,7 +49,7 @@ const MyOrder = () => {
                 style={{ backgroundColor: "#DFDFDF" }}
                 className="pb-3"
               >
-                <Card.Text className="fs-3">
+                <Card.Text className="fs-5">
                   <span style={{ color: "#E75B00" }}>
                     Package/Destination:{" "}
                   </span>
