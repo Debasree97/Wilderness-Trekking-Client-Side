@@ -43,7 +43,7 @@ const Header = () => {
                 style={navStyle}
                 to="/myorders"
               >
-                My Orders
+                My Bookings
               </Nav.Link>
             )}
             {user?.email && <NavDropdown.Divider />}
