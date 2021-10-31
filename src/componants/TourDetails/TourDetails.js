@@ -2,18 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Container, Spinner } from "react-bootstrap";
 import { useParams } from "react-router";
 import tourDetailPage from "../../images/tourDetailPage.jpg";
-import { useForm } from "react-hook-form";
-import axios from "axios";
+import BookingForm from "../BookingForm/BookingForm";
+import useAuth from "../../hooks/useAuth";
 
 const TourDetails = () => {
   const { tourId } = useParams();
   const [tourDetail, setTourDetail] = useState({});
-  const { register, handleSubmit, reset } = useForm();
   const [isloading, setIsloading] = useState(true);
-  // const [isPending, setIsPending] = useState("pending");
+
+  const { user } = useAuth();
 
   useEffect(() => {
-    const url = `http://localhost:5000/tours/${tourId}`;
+    const url = `https://aqueous-badlands-96992.herokuapp.com/tours/${tourId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -24,26 +24,19 @@ const TourDetails = () => {
       });
   }, [tourId, setTourDetail, tourDetail]);
 
-
-  // const onSubmit = (data) => {
-  //   const url = `http://localhost:5000/tours/${tourId}`;
-  //   axios.post(url, data).then((res) => {
-  //     if (res.data.insertedId) {
-  //       alert("Your booking request has been submitted");
-  //       reset();
-  //     }
-  //   });
-  // };
-
   if (isloading) {
     return (
-      <Container style={{height:"50vh"}} className="d-flex align-items-center justify-content-center mb-5">
+      <Container
+        style={{ height: "50vh" }}
+        className="d-flex align-items-center justify-content-center mb-5"
+      >
         <Spinner animation="border" variant="secondary" />
       </Container>
     );
   }
 
   const { name, price, location, tourTime, Description } = tourDetail;
+
   return (
     <div>
       <img
@@ -72,22 +65,7 @@ const TourDetails = () => {
           <span style={{ color: "#E75B00" }}>Price(Starter):</span> ${price}
         </p>
       </Container>
-      <Container>
-        <div className="serviceForm">
-          <h1>Add a Service</h1>
-          {/* <form onSubmit={handleSubmit(onSubmit)}> */}
-          <form>
-            <input
-              {...register("name", { required: true })}
-              placeholder="Name"
-            />
-            <textarea {...register("description")} placeholder="Description" />
-            <input type="number" {...register("price")} placeholder="Price" />
-            <input {...register("image")} placeholder="Image" />
-            <input type="submit" />
-          </form>
-        </div>
-      </Container>
+      <BookingForm name={name}></BookingForm>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Tours = () => {
   const [isloading, setIsloading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/tours")
+    fetch("https://aqueous-badlands-96992.herokuapp.com/tours")
       .then((res) => res.json())
       .then((data) => {
         setTours(data);

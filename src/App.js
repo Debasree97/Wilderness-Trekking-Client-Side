@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.css";
 import AddOrder from "./componants/AddOrder/AddOrder";
+import BookingForm from "./componants/BookingForm/BookingForm";
 import Footer from "./componants/Footer/Footer";
 import Header from "./componants/Header/Header";
 import Home from "./componants/Home/Home";
@@ -29,7 +30,11 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/myorder">
+            <Route path="/orders">
+              <BookingForm></BookingForm>
+              <TourDetails></TourDetails>
+            </Route>
+            <Route path="/orders">
               <MyOrder></MyOrder>
             </Route>
             <Route path="/manageorder">

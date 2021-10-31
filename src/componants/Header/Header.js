@@ -41,7 +41,7 @@ const Header = () => {
                 as={Link}
                 className="fs-5"
                 style={navStyle}
-                to="/myorder"
+                to="/myorders"
               >
                 My Orders
               </Nav.Link>
@@ -109,9 +109,6 @@ const Header = () => {
                 Sign in
               </Nav.Link>
             )}
-            {/* <NavLink className="fs-5" style={navStyle} to="/login">
-                Sign in
-              </NavLink> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

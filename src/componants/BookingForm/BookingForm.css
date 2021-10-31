@@ -1,0 +1,9 @@
+label {
+  margin-top: 10px;
+}
+input,
+textarea,
+label {
+  margin-bottom: 3px;
+  font-size: large;
+}
