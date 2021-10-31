@@ -15,26 +15,26 @@ const BookingForm = (props) => {
   const { user } = useAuth();
 
   const onSubmit = (data) => {
-    // axios
-    //   .post("https://aqueous-badlands-96992.herokuapp.com/order", data)
-    fetch("http://localhost:5000/orders", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify(data),
-    }).then((res) => {
-      console.log(res);
-    });
+    axios
+      .post("http://localhost:5000/orders", data)
+      // fetch("http://localhost:5000/orders", {
+      //   method: "POST",
+      //   headers: {
+      //     "content-type": "application/json"
+      //   },
+      //   body: JSON.stringify(data),
+      // })
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   return (
-    <Container className="my-5 pt-5">
+    <div className="my-5 pt-5">
       <h1 className="text-center mb-4">
         Please Fill Up the Form below to Submit Your Booking Request
       </h1>
-      <Container
-        fluid
+      <div
         className="w-75 p-3"
         style={{ backgroundColor: "#3C3C3C", color: "#DFDFDF" }}
       >
@@ -45,14 +45,11 @@ const BookingForm = (props) => {
             <label>Name</label>
             <input {...register("name")} />
             {errors.name?.type === "required" && "Please enter your name"}
-            <label>Age</label>
-            <input type="number" {...register("age", { min: 16 })} />
-            {errors.age?.type === "required" && "Your age must be above 16"}
             <label>Address</label>
             <textarea {...register("address")} />
             {errors.address?.type === "required" && "Please enter your address"}
-            {/* <label>Trip Package</label>
-            <input readOnly defaultValue={props.name}  /> */}
+            <label>Trip Package</label>
+            <input defaultValue={props.name} {...register("destination")} />
             <label>Pick Your Trip Date</label>
             <input type="date" {...register("date")} placeholder="date" />
             <input
@@ -71,8 +68,8 @@ const BookingForm = (props) => {
             />
           </div>
         </form>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 
