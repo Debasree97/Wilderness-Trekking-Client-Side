@@ -50,7 +50,7 @@ const Header = () => {
             {user?.email && (
               <NavDropdown
                 className="fs-5"
-                title="Admin"
+                title="Dashboard"
                 id="navbarScrollingDropdown"
               >
                 <Nav.Link
@@ -73,13 +73,12 @@ const Header = () => {
             )}
             {user?.email && <NavDropdown.Divider />}
             {user?.email ? (
-              <Nav 
+              <Nav
                 className="fs-5 d-inline p-2"
                 style={{
                   textDecoration: "none",
                   color: "#DFDFDF",
                   backgroundColor: "#3C3C3C",
-                  
                 }}
               >
                 <img

@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Container, Spinner } from "react-bootstrap";
+import { Container} from "react-bootstrap";
 import { useParams } from "react-router";
 import tourDetailPage from "../../images/tourDetailPage.jpg";
 import BookingForm from "../BookingForm/BookingForm";
-import useAuth from "../../hooks/useAuth";
 
 const TourDetails = () => {
   const { tourId } = useParams();
   const [tourDetail, setTourDetail] = useState({});
-  const [isloading, setIsloading] = useState(true);
-
-  const { user } = useAuth();
 
   useEffect(() => {
     const url = `https://aqueous-badlands-96992.herokuapp.com/tours/${tourId}`;
@@ -18,22 +14,8 @@ const TourDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         setTourDetail(data);
-        if (tourDetail !== {}) {
-          setIsloading(false);
-        }
       });
   }, [tourId, setTourDetail, tourDetail]);
-
-  if (isloading) {
-    return (
-      <Container
-        style={{ height: "50vh" }}
-        className="d-flex align-items-center justify-content-center mb-5"
-      >
-        <Spinner animation="border" variant="secondary" />
-      </Container>
-    );
-  }
 
   const { name, price, location, tourTime, Description } = tourDetail;
 

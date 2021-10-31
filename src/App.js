@@ -34,7 +34,7 @@ function App() {
               <BookingForm></BookingForm>
               <TourDetails></TourDetails>
             </Route>
-            <Route path="/orders">
+            <Route path="/myorders">
               <MyOrder></MyOrder>
             </Route>
             <Route path="/manageorder">

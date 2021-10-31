@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
-import axios from "axios";
+// import axios from "axios";
 import { Container } from "react-bootstrap";
 import "./BookingForm.css";
+import { useHistory } from "react-router";
 
 const BookingForm = (props) => {
   const {
@@ -13,28 +14,32 @@ const BookingForm = (props) => {
     formState: { errors },
   } = useForm();
   const { user } = useAuth();
+  const history = useHistory();
 
   const onSubmit = (data) => {
-    axios
-      .post("http://localhost:5000/orders", data)
-      // fetch("http://localhost:5000/orders", {
-      //   method: "POST",
-      //   headers: {
-      //     "content-type": "application/json"
-      //   },
-      //   body: JSON.stringify(data),
-      // })
-      .then((res) => {
-        console.log(res);
-      });
+    const destination = props.name;
+    data.destination = destination;
+    // axios
+    //   .post("https://aqueous-badlands-96992.herokuapp.com/orders", data)
+    fetch("https://aqueous-badlands-96992.herokuapp.com/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }).then((res) => {
+        reset();
+      history.push("/myorders");
+    });
   };
 
   return (
-    <div className="my-5 pt-5">
+    <Container className="my-5 pt-5 ">
       <h1 className="text-center mb-4">
         Please Fill Up the Form below to Submit Your Booking Request
       </h1>
-      <div
+      <Container
+        fluid
         className="w-75 p-3"
         style={{ backgroundColor: "#3C3C3C", color: "#DFDFDF" }}
       >
@@ -49,9 +54,10 @@ const BookingForm = (props) => {
             <textarea {...register("address")} />
             {errors.address?.type === "required" && "Please enter your address"}
             <label>Trip Package</label>
-            <input defaultValue={props.name} {...register("destination")} />
+            <input readOnly defaultValue={props.name} />
             <label>Pick Your Trip Date</label>
             <input type="date" {...register("date")} placeholder="date" />
+            {errors.date?.type === "required" && "Please Pick a Date"}
             <input
               style={{
                 marginTop: "50px",
@@ -68,8 +74,8 @@ const BookingForm = (props) => {
             />
           </div>
         </form>
-      </div>
-    </div>
+      </Container>
+    </Container>
   );
 };
 
