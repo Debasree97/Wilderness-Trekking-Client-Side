@@ -31,7 +31,7 @@ const Login = () => {
       </div>
       <Container className="d-flex flex-column p-3 align-items-center">
         <h1 className="text-center display-5 mb-5">
-          Catch up new with exciting trips Today!
+          Not Signed In Yet?
         </h1>
         <div
           className="d-grid gap-4 p-5 shadow"
@@ -46,7 +46,7 @@ const Login = () => {
               <span style={{ color: "#E75B00" }}>{user?.displayName}</span>
             </h1>
           ) : (
-            <h1 className="text-center">Log in to your account</h1>
+            <h1 className="text-center">Log into your account</h1>
           )}
 
           {user?.displayName ? (

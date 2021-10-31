@@ -59,7 +59,7 @@ const Header = () => {
                   style={navStyle}
                   to="/addorder"
                 >
-                  Add New Destination
+                  Add New Package
                 </Nav.Link>
                 <Nav.Link
                   as={Link}
@@ -67,7 +67,7 @@ const Header = () => {
                   style={navStyle}
                   to="/manageorder"
                 >
-                  Manage Booking
+                  Manage All Bookings
                 </Nav.Link>
               </NavDropdown>
             )}
@@ -100,7 +100,7 @@ const Header = () => {
                   }}
                   onClick={handleGoogleSignOut}
                 >
-                  Sign Out
+                  Sign out
                 </button>
               </Nav>
             ) : (
