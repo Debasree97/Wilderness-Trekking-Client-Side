@@ -4,12 +4,16 @@ Live Website Link: [Wilderness Trekking](https://assignment-11-authentication.we
 
 ## Description
 
-This website offers enjoyable trekking experience by arranging fully self-sufficient packages. 
+A responsive MERN full-stack website that offers enjoyable trekking experience by arranging guided tours.
 
-### Key Points:
+### Technology
 
-1. There are two general route: Home, Signin
-2. Header and footer sections are available in every pages
-3. Home Page has four sections: banner, why choose us, offered destination/package, review
+ React JS, CSS3, React-Bootstrap, Bootstrap 5, React-Router, Firebase
+
+### Features
+
+1. There are two general routes: Home, Signin
+2. Google Sign-in authentication has been integrated.
+3. Private route has been implemented to prevent unauthorized user access to certain routes. 
 4. Signin will enable My Orders, Manage All Orders, Add new Package routes and Sign out button
 5. Any unrecognized route will lead to a 404 not found page
