@@ -20,15 +20,15 @@ const BookingForm = (props) => {
     const destination = props.name;
     data.destination = destination;
     // axios
-    //   .post("https://aqueous-badlands-96992.herokuapp.com/orders", data)
-    fetch("https://aqueous-badlands-96992.herokuapp.com/orders", {
+    //   .post("https://wildernesstrekking.onrender.com/orders", data)
+    fetch("https://wildernesstrekking.onrender.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(data),
     }).then((res) => {
-        reset();
+      reset();
       history.push("/myorders");
     });
   };

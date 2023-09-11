@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container} from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useParams } from "react-router";
 import tourDetailPage from "../../images/tourDetailPage.jpg";
 import BookingForm from "../BookingForm/BookingForm";
@@ -9,7 +9,7 @@ const TourDetails = () => {
   const [tourDetail, setTourDetail] = useState({});
 
   useEffect(() => {
-    const url = `https://aqueous-badlands-96992.herokuapp.com/tours/${tourId}`;
+    const url = `https://wildernesstrekking.onrender.com/tours/${tourId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => {

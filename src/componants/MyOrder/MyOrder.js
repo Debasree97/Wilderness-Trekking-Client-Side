@@ -9,7 +9,7 @@ const MyOrder = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("https://aqueous-badlands-96992.herokuapp.com/orders")
+    fetch("https://wildernesstrekking.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => {
         const myBookings = data.filter(
@@ -22,13 +22,13 @@ const MyOrder = () => {
   const handleDeleteBooking = (id) => {
     const proceed = window.confirm("Do You Want to Cancel Your Booking?");
     if (proceed) {
-      const url = `https://aqueous-badlands-96992.herokuapp.com/myorders/${id}`;
+      const url = `https://wildernesstrekking.onrender.com/myorders/${id}`;
       fetch(url, {
         method: "delete",
       })
         .then((res) => res.json())
-          .then((data) => {
-              console.log(data);
+        .then((data) => {
+          console.log(data);
           if (data.deletedCount > 0) {
             alert("Cancelled");
             const remaining = bookings.filter((booking) => booking._id !== id);

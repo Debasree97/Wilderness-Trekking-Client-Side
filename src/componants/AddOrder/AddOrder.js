@@ -10,7 +10,7 @@ const AddOrder = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch("https://aqueous-badlands-96992.herokuapp.com/addorder", {
+    fetch("https://wildernesstrekking.onrender.com/addorder", {
       method: "POST",
       headers: {
         "content-type": "application/json",

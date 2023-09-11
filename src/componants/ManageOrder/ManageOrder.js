@@ -1,4 +1,7 @@
-import { faCheckSquare, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheckSquare,
+  faWindowClose,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
@@ -7,7 +10,7 @@ const ManageOrder = () => {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    fetch("https://aqueous-badlands-96992.herokuapp.com/orders")
+    fetch("https://wildernesstrekking.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => {
         setBookings(data);
@@ -17,7 +20,7 @@ const ManageOrder = () => {
   const handleDeleteBooking = (id) => {
     const proceed = window.confirm("Cancel This Booking?");
     if (proceed) {
-      const url = `https://aqueous-badlands-96992.herokuapp.com/manageorder/${id}`;
+      const url = `https://wildernesstrekking.onrender.com/manageorder/${id}`;
       fetch(url, {
         method: "delete",
       })
